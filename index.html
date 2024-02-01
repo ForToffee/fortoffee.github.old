@@ -1,232 +1,29 @@
+<!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.11/paper-full.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@jaames/iro"></script>
-  <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-    }
- 
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
- 
-    #cv {
-      border: 3px solid blue;
-    }
- 
-    #color-picker {
-      display: flex;
-      width: 100%;
-      justify-content: center;
-      padding: 0 25px 25px 0;
-    }
- 
-    .button-container {
-      display: flex;
-      justify-content: center;
-      padding: 25px 0px 25px;
-    }
- 
-    #done {
-      margin-right: 5px;
-    }
- 
-    #reset {
-      margin-left: 5px;
-    }
- 
-    #changeforall {
-      margin-right: 10px;
-    }
-  </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Astro Pi/SenseHat Image Generator</title>
+    <base href="/" />
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="Pixels.styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <script src="js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.min.js"></script>
 </head>
- 
+
 <body>
-  <div>
-    <div id="color-picker">
+    <div id="app">Loading...</div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
     </div>
-    <center>
-      <form action="javascript:void(0)">
-        <input type="text" id="color-input">
-        <button id="color-input-ok" type="submit">OK</button>  
-      </form>
-    </center>
-  </div>
-  <div class="main">
-    <div class="button-container">
-      
-        <label for="changeforall">Change color for all colored pixels</label>
-        <input type="checkbox" id="changeforall">
-        <button id="done">
-          Done!
-        </button>
-      <button id="reset">
-        reset
-      </button>
-      <button id="blackify">
-        set all white pixels black
-      </button>
-    </div>
-    <div style="height: 100%; display: flex; justify-content: center;">
-      <canvas id="cv" height="793px" width="793px"></canvas>
-    </div>
-  </div>
- 
-  <script>
-    const canvas = document.getElementById("cv")
-    const btn = document.querySelector("#done")
-    const reset = document.querySelector("#reset")
-    const changeAllInput = document.querySelector("#changeforall")
-    const colorInput = document.querySelector("#color-input")
-    const colorInputButton = document.querySelector("#color-input-ok")
-    const blButton = document.getElementById("blackify")
- 
-    let currColor = 'white'
- 
-    canvas.oncontextmenu = e => {
-      e.preventDefault()
-    }
- 
-    paper.setup(canvas)
-    paper.install(window)
- 
-    let isMouseDown = false
-    let isLeftClick = true
- 
-    paper.view.onMouseDown = e => {
-      isLeftClick = e.event.button === 0
-      isMouseDown = true
-    }
- 
-    paper.view.onMouseUp = () => {
-      isMouseDown = false
-    }
- 
-    const paths = []
- 
-    function createRectangle(x, y, xsize, ysize, color) {
-      const rect = new Rectangle([x, y], [xsize, ysize])
-      const path = new Path.Rectangle(rect)
- 
-      path.fillColor = color
-      path.strokeColor = 'black'
-      path.strokeWidth = 1
- 
-      path.onClick = function (event) {
-        if (event.event.button === 0 /* left click */)
-          path.fillColor = currColor
-        else
-          path.fillColor = 'white'
-      }
- 
-      path.onMouseMove = (e) => {
-        if (isMouseDown) {
-          if (isLeftClick) {
-            if (path.lastFillColor !== currColor) {
-              path.fillColor = currColor
-              path.lastFillColor = currColor
-            }
-          } else {
-            if (path.lastFillColor !== "#ffffff") {
-              path.fillColor = '#ffffff'
-              path.lastFillColor = '#ffffff'
-            }
-          }
-        }
-      }
- 
-      return path
-    }
- 
-    for (let i = 0; i < 8; i++) {
-      for (let j = 0; j < 8; j++) {
-        paths.push({
-          x: i,
-          y: j,
-          pixel: createRectangle(i * 50, j * 50, 49, 49, 'white')
-        })
-      }
-    }
- 
-    btn.onclick = () => {
-      const sendData = []
-      paths.forEach(p => {
-        const col = p.pixel.fillColor._canvasStyle
-        const rgbValues = col.replace("rgb(", "").replace(")", "").split(",")
-        const color = {
-          r: rgbValues[0],
-          g: rgbValues[1],
-          b: rgbValues[2]
-        }
-        const x = p.x
-        const y = p.y
- 
-        const final = {
-          color,
-          x,
-          y
-        }
- 
-        sendData.push(final)
-      })
- 
-      const json = JSON.stringify(sendData)
- 
-      fetch("/api/set-pixels", {
-          method: "POST",
-          headers: {
-            'Content-Length': json.length
-          },
-          body: json
-        })
-    }
- 
-    reset.onclick = () => {
-      paths.map(p => p.pixel).forEach(path => {
-        path.fillColor = 'white'
-      })
-      colorPicker.color.hexString = '#ffffff'
-    }
- 
-    const colorPicker = new iro.ColorPicker('#color-picker')
-    colorPicker.on('color:change', color => {
-      currColor = color.hexString
- 
-      if (changeAllInput.checked) {
-        paths.filter(p => p.pixel.fillColor._canvasStyle !== 'rgb(255,255,255)')
-          .forEach(p => {
-            p.pixel.fillColor = currColor
-          })
-      }
- 
-      colorInput.value = currColor
-    })
- 
-    colorPicker.on('mount', () => {
-      colorPicker.el.style.display = 'flex'
-      colorPicker.el.style.flex = '0'
-      colorInput.value = colorPicker.color.hexString
-    })
- 
-    colorInputButton.onclick = () => {
-      colorPicker.color.hexString = colorInput.value
-    }
- 
-    blButton.onclick = () => {
-      paths.filter(p => p.pixel.fillColor._canvasStyle === 'rgb(255,255,255)')
-          .forEach(p => {
-            p.pixel.fillColor = 'black'
-          })
-    }
-  </script>
+    <script src="_framework/blazor.webassembly.js"></script>
 </body>
+
 </html>
