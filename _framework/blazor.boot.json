@@ -1,0 +1,67 @@
+{
+  "cacheBootResources": true,
+  "config": [ ],
+  "debugBuild": false,
+  "entryAssembly": "Pixels",
+  "icuDataMode": 0,
+  "linkerEnabled": true,
+  "resources": {
+    "assembly": {
+      "Microsoft.AspNetCore.Components.dll": "sha256-uR8RxTx81YfB0dORfvwkJyKNI9D7lMT1EiAm7o+eRJ4=",
+      "Microsoft.AspNetCore.Components.Web.dll": "sha256-eQiEzvtgM3SJhU\/AfNg+5Y\/S+whly1\/hAV3Jr5LQ5Mc=",
+      "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-ik6kh1+5IMWOfU3JtVOvxeU4wlB9NAiunmetsU3OGxg=",
+      "Microsoft.Extensions.Configuration.Abstractions.dll": "sha256-TxDqz\/VZJfkpsgsLeO4VcHL38PixW+lxGYzFitareyM=",
+      "Microsoft.Extensions.Configuration.dll": "sha256-ZgEJoC5SUNAN4N\/nhp2IH2pfLruw\/E0GuBPBziiZIXc=",
+      "Microsoft.Extensions.Configuration.Json.dll": "sha256-VoCuvTHaP23ECuKmKbb8DL6D5W1bDIoAfuoYf5Jmuoo=",
+      "Microsoft.Extensions.DependencyInjection.Abstractions.dll": "sha256-TKYhmk0lt2PqFEwX5OkLMx5FR2mAmmSykayMsriBrYA=",
+      "Microsoft.Extensions.DependencyInjection.dll": "sha256-iva+VftZAxd\/DmqZ0vx8bfoyrTG6j4IsdnCx1vytvZk=",
+      "Microsoft.Extensions.Logging.Abstractions.dll": "sha256-v3L7N\/eKfahx9NOOyT2ceCbfaWC2K3KpbPYOVwaQLIA=",
+      "Microsoft.Extensions.Logging.dll": "sha256-y1LVRCoeseV7mJm+Wr\/669bU0KEnIpiUaWW9JASfVys=",
+      "Microsoft.Extensions.Options.dll": "sha256-GTmXnOc4ekm2GOO3iRGQQPtufUMT5h8RNSyMLiwlArg=",
+      "Microsoft.Extensions.Primitives.dll": "sha256-P35OhD2ZTukdXZkTWF++43G3iRGaeW0+bTxE1GCBXXU=",
+      "Microsoft.JSInterop.dll": "sha256-9Of08EzX1xAT5EJGM0GfyczgGEJFQ+5qcJVDzbjSPi4=",
+      "Microsoft.JSInterop.WebAssembly.dll": "sha256-P5EQ4AKMZMkmlrmMyxoPnlqpM6HY4PIerPjxiQ7oFc4=",
+      "Pixels.dll": "sha256-gqKvp\/Um4CsFLBODLeJ4pN3x5EigbDBXRsmDoNAGF68=",
+      "System.Collections.Concurrent.dll": "sha256-kz7ymoem6x9PzHETFMpM6JC+H9segO7YE4YRY07Xqa8=",
+      "System.Collections.dll": "sha256-ftgCVAys+\/2NFteMm31zzSzsX+hIi3COQhLwj0UfknU=",
+      "System.ComponentModel.dll": "sha256-itf3SOrpVKfkJrM48Tdt+cECyhcvVnc9gvHIfs6UIcQ=",
+      "System.ComponentModel.Primitives.dll": "sha256-Neq7M75ezmHDM98xjbDSYkdt1zba\/TRjvrnNQizZM8Q=",
+      "System.ComponentModel.TypeConverter.dll": "sha256-BcwOgu5QH6wcyyXhzmWCm3qa2FhyZ0pbirmwTx+lCZc=",
+      "System.Drawing.dll": "sha256-k6iwtyBocAhHDtRzhGsj5bTEkdJdipeYZv+bHxzNirw=",
+      "System.Drawing.Primitives.dll": "sha256-qygGQh4yXrB8Lm3nU0NUAD28mAjnT6plEx0Akd8MpmI=",
+      "System.Linq.dll": "sha256-TGZDdQlIIiex1qxO3dattgVJhv3syqDAboHT0XExbUw=",
+      "System.Memory.dll": "sha256-BtfmsyJw+vHa3\/2zNXsrpdeGpSn3LU+JYdabXtSd1Zw=",
+      "System.Net.Http.dll": "sha256-1TvWbcB492llccPTC52LPwB19g5W5w7jXZ94quSx8KU=",
+      "System.Net.Http.Json.dll": "sha256-k8hfrcWgBgbucbQdFkE2YdRgsQpTEtC\/UvblAf3Fd1M=",
+      "System.Net.Primitives.dll": "sha256-CuvlUo0Anje+kH6w\/4o1TTDzrJMjuKozQPPOk\/rvRfE=",
+      "System.ObjectModel.dll": "sha256-gkXQE3xK27hVgI2Hrkhe3rv\/5xlwP7CV7eCWbvaS6lE=",
+      "System.Private.CoreLib.dll": "sha256-qM7QSfbWr1Jj96BfSqESRkF3QN\/+nDtt8y8XTp691no=",
+      "System.Private.Runtime.InteropServices.JavaScript.dll": "sha256-2HchgYfYK2MmW0JQn5OHJRV0cqSWBBwDnytgg4IDo3A=",
+      "System.Private.Uri.dll": "sha256-hZqhmdiMRyI3aBnlIr6OC9QKrlw60+Ft9EMXnkOkCqk=",
+      "System.Runtime.CompilerServices.Unsafe.dll": "sha256-WcFgmVTQYJkZGOkw04iL2f89LotEN3XxB4Fas+ZZpP4=",
+      "System.Runtime.dll": "sha256-2mBvZvDm0un0ol6h8SMrPbafVS56p2mhNHEYU4poVq4=",
+      "System.Text.Encodings.Web.dll": "sha256-pTnONajdB768JnOUCONQdDYPmyJXC3J1VDXYnQ8aUCI=",
+      "System.Text.Json.dll": "sha256-ED2NHwZQZKIdou1Gd6kJ5p\/p1TWWnoiJsEZ\/rcdyJA8="
+    },
+    "extensions": null,
+    "lazyAssembly": null,
+    "libraryInitializers": null,
+    "pdb": null,
+    "runtime": {
+      "dotnet.6.0.18.cj7xi80tko.js": "sha256-Iww31ANFa3KZuR4RkhiSYt3FJ7PKpMdeFNq3l3Td1h8=",
+      "dotnet.timezones.blat": "sha256-eZ48TqSDBkRFut2vm6DOJQJPQjvG+LB8ucOA4NLkqg0=",
+      "dotnet.wasm": "sha256-a72LObjDo13A83kXjiYr4L\/Ge6OltrKCx5e3b4PWANk=",
+      "icudt_CJK.dat": "sha256-WPyI4hWDPnOw62Nr27FkzGjdbucZnQD+Ph+GOPhAedw=",
+      "icudt_EFIGS.dat": "sha256-4RwaPx87Z4dvn77ie\/ro3\/QzyS+\/gGmO3Y\/0CSAXw4k=",
+      "icudt_no_CJK.dat": "sha256-OxylFgLJlFqixsj+nLxYVsv5iZLvfIKMpLf9hrWaChA=",
+      "icudt.dat": "sha256-Zuq0dWAsBm6\/2lSOsz7+H9PvFaRn61KIXHMMwXDfvyE="
+    },
+    "runtimeAssets": {
+      "dotnet.wasm": {
+        "behavior": "dotnetwasm",
+        "hash": "sha256-a72LObjDo13A83kXjiYr4L\/Ge6OltrKCx5e3b4PWANk="
+      }
+    },
+    "satelliteResources": null
+  }
+}
